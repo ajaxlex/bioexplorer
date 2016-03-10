@@ -1,0 +1,13 @@
+<div class="pulltab"></div>
+<div class="detail">
+  <div class="panel-group" id="accordion1">
+    <div class="panel panel-default" ng-repeat="node in ctlControl.nodes">
+      <div class="panel-heading">
+        <a data-toggle="collapse" data-parent="#accordion1" href="#collapse2" ng-click="ctlControl.select($index)">
+          <span class="glyphicon glyphicon-{{node.iconclass}} list-icon"></span>
+          <span ng-bind="node.name"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,233 @@
+body {
+  margin: 0;
+  background-color: #3B3355;
+  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAOklEQVQYV2NkYGD4b2xszIALnD17loHR2Nj4P4iBTSFMHKwIZApMAJ0GycEVYVMIc8JAmETQd8SEEwAmkEYwknyzmAAAAABJRU5ErkJggg==) repeat;
+}
+
+
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+
+.node {
+  font: 10px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+
+#PhylogenyModal .modal-dialog {
+  width: 750px;
+}
+
+#phylogeny {
+  padding-bottom: 15px;
+  width: 500px;
+  height: 400px;
+  /*verflow-y: scroll;*/
+}
+
+
+
+
+
+.detail {
+  background-color: #444;
+  height: 500px;
+  width: 200px;
+  padding: 10px;
+}
+
+.pulltab {
+  height: 70px;
+  width: 20px;
+  background-color: #444;
+  position: relative;
+  top: 215px;
+}
+
+.leftpane .pulltab {
+  border-radius: 10px 0 0 10px;
+  float: left;
+  left: -20px;
+}
+
+.rightpane .pulltab {
+  border-radius: 0 10px 10px 0;
+  float: right;
+  left: 20px;
+}
+
+
+
+
+/* map? */
+
+.title {
+  font-family: sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  color: #335;
+  margin: 20px;
+}
+
+.latin {
+  font-size: 12px;
+}
+
+path {
+  stroke: white;
+  stroke-width: 0.25px;
+  fill: #222;
+}
+
+.nav a{
+  color: #484559;
+}
+
+/* end map */
+
+
+
+
+/* vidpane */
+
+.vidcontainer {
+  position: relative;
+}
+
+video.v {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+}
+
+canvas.c {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: #FFF;
+  text-align: center;
+  font-size: 20px;
+  background-color: rgba(255, 255, 255, 0.0);
+  padding: 10px 0;
+  z-index: 3;
+}
+
+
+
+
+.controls {
+  position: absolute;
+  float: left;
+  top: 370px;
+  left: 5px;
+  width: 380px;
+  height: 22px;
+  z-index: 500;
+}
+
+.overlay {
+  position: absolute;
+  float: left;
+  color: #999;
+  background-color: #000;
+  top: 0px;
+  left: 5px;
+  width: 380px;
+  height: 22px;
+  z-index: 500;
+}
+
+.list-icon {
+  float: left;
+  margin-right: 5px;
+}
+
+.datapane {
+  position: relative;
+}
+
+.leftpane {
+  position: absolute;
+  top: 150px;
+  left: 200px;
+}
+
+.rightpane {
+  position: absolute;
+  top: 150px;
+  left: 710px;
+}
+
+.objective {
+  float: left;
+  position: relative;
+  /*display: none;*/
+  width: 500px;
+  height: 500px;
+  background-color: #000;
+}
+
+.objControl {
+  /*float: left;*/
+  position: absolute;
+  display: block;
+  width: 500px;
+  height: 500px;
+}
+
+.leftpane .objControl {
+  left: -10px;
+}
+
+.rightpane .objControl {
+  right: -10px;
+}
+
+.objMesh {}
+.objVideo {}
+.objPicture {}
+.objDescription {}
+.objMap {}
+
+#thumbtray {
+  width: 100%;
+  height: 80px;
+}
+
+.thumb {
+  width: 80px;
+  height: 80px;
+  float: left;
+  margin-left: 10px;
+}
+
+.navbar {
+  margin-bottom: 10px;
+}
+
+
+
+/*
+#000000
+#3B3355
+#40798C
+#70A9A1
+#CFD7C7
+*/
+
+/*
+//D8D8D4
+//9B9DBC
+//484559
+//B59A8F
+//BCBDB6
+*/

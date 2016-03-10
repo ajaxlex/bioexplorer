@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bio Explorer</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/base.css" rel="stylesheet">
+</head>
+
+<body ng-app="bioExplorerApp">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.2/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.2/ui-bootstrap.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+  <script src="js/bootstrap.min.js"></script>
+
+  <script src="//d3js.org/d3.v3.min.js"></script>
+  <script src="//d3js.org/topojson.v0.min.js"></script>
+
+  <script src="js/newick.js" type="text/javascript"></script>
+  <script src="js/d3.phylogram.js" type="text/javascript"></script>
+
+
+  <script src="js/three.js"></script>
+  <script src="js/OBJLoader.js"></script>
+  <script src="js/Projector.js"></script>
+  <script src="js/OrbitControls.js"></script>
+
+  <script src="js/phylogeny.js"></script>
+  <script src="js/objective.js"></script>
+  <script src="js/vidpane.js"></script>
+  <script src="js/map.js"></script>
+
+
+<!--- Angular code --->
+  <script src="angular/bio_explorer.js"></script>
+
+  <script src="angular/services/target_model.service.js"></script>
+
+  <script src="angular/components/objControl.component.js"></script>
+  <script src="angular/components/datapane.component.js"></script>
+  <script src="angular/components/objMesh.component.js"></script>
+  <script src="angular/components/objVideo.component.js"></script>
+  <script src="angular/components/phylogeny_modal.component.js"></script>
+
+<!--- end Angular --->
+
+  <script>
+
+    $(function(){
+      /*
+      var map = new Rangepane( "#geo", {
+          "map": "data/world.json",
+          "dimension": { "x": 500, "y": 500 }
+      });
+      */
+      var phylogeny = new PhylogenyTree( "#phylogeny", {
+          "data": "(((Crotalus_oreganus_oreganus_cytochrome_b:0.00800,Crotalus_horridus_cytochrome_b:0.05866):0.04732,(Thamnophis_elegans_terrestris_cytochrome_b:0.00366,Thamnophis_atratus_cytochrome_b:0.00172):0.06255):0.00555,(Pituophis_catenifer_vertebralis_cytochrome_b:0.00552,Lampropeltis_getula_cytochrome_b:0.02035):0.05762,((Diadophis_punctatus_cytochrome_b:0.06486,Contia_tenuis_cytochrome_b:0.05342):0.01037,Hypsiglena_torquata_cytochrome_b:0.05346):0.00779);",
+          "dimension": { "x": 400, "y": 400 }
+      });
+
+      /* flyout panels animation */
+      $('.leftpane .objControl').hover(function() {
+          $(this).stop(true, false).animate({ left: -200 }, 300);
+      }, function() {
+          $(this).stop(true, false).delay(500).animate({ left: -10 }, 300);
+      });
+
+      $('.rightpane .objControl').hover(function() {
+          $(this).stop(true, false).animate({ right: -200 }, 300);
+      }, function() {
+          $(this).stop(true, false).delay(500).animate({ right: -10 }, 300);
+      });
+
+      /* thumbnail creation */
+      addThumb = function( subject, pane, data ){
+        var thumb = $('<div class="thumb" subject="' + subject + '" pane="' + pane + '"><canvas></canvas></div>');
+        $(thumb).data( "init", data );
+
+        // add methods for reconstitution
+        // indicate left or right pane
+        // then pass along to the relevant datapane
+
+        var orientation = "left";
+
+        $(thumb).click( function( event ){
+          if ( orientation === "left" ){
+            $(thumb).animate({ opacity: 0.2 }, 300)
+            .animate({ left: 200, top: 200 }, 300)
+            .complete( function(){
+              alert('done');
+              // remove thumbnail
+            });
+
+            // get controller for correct pane.
+            // reconstitute pane
+            // select correct index, pass along specific data
+
+            //angular.element(document.querySelector("#specific")).scope().initPane();
+
+
+
+
+
+          }
+        });
+
+        $('#thumbtray').append( thumb );
+        return thumb;
+      };
+
+      /* thumbnail opening */
+      //
+
+
+
+    });
+
+  </script>
+
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Bio Explorer</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#" data-toggle="modal" data-target="#PhylogenyModal">Phylogeny</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div id="thumbtray">
+  <div id="animframe"></div>
+</div>
+
+<div id="data" class="leftpane">
+  <div id="specific" datapane target="foo" align="left" class="datapane"></div>
+</div>
+<div id="data2" class="rightpane">
+  <div datapane target="fee" align="right" class="datapane"></div>
+</div>
+
+<!-- Modal -->
+<phylogeny-modal></phylogeny-modal>
+
+
+</body>
+</html>
